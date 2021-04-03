@@ -1,4 +1,5 @@
 <?php
+include_once "classes/DBHandler.class.php";
 
 class Products extends DBHandler {
 
@@ -9,5 +10,6 @@ class Products extends DBHandler {
 
         $results = $stmt->fetchAll();
         return $results;
+        print($results);
     }
 }

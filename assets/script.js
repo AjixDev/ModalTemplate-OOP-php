@@ -1,6 +1,7 @@
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-btn]')
 const overlay = document.getElementById('overlay')
+const getProductID = document.querySelectorAll('[data-indexNumber]')
 
 openModalButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -33,4 +34,28 @@ function closeModal(modal) {
   if (modal == null) return
   modal.classList.remove('active')
   overlay.classList.remove('active')
+}
+
+//AJAX Description Handler
+
+getProductID.forEach((button) => {
+  button.addEventListener('click', () => {
+    const btnID = document.querySelector(button.dataset.indexNumber)
+    console.log(btnID)
+    btnValuePost(btnID)
+  })
+})
+
+function btnValuePost(btnID) {
+  console.log(btnID)
+  $.post(
+    'classes/Ajax.class.php',
+    {
+      btnID: btnID,
+    },
+    (response) => {
+      // response from PHP back-end
+      console.log(response, btnID)
+    }
+  )
 }

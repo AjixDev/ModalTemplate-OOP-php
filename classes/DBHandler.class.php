@@ -1,6 +1,6 @@
 <?php
 
-abstract class DBHandler {
+class DBHandler {
     private $host = "localhost";
     private $dbUserName = "root";
     private $dbPassword = "mysql";
