@@ -41,13 +41,11 @@ function closeModal(modal) {
 getProductID.forEach((button) => {
   button.addEventListener('click', () => {
     const btnID = document.querySelector(button.dataset.indexNumber)
-    console.log(btnID)
     btnValuePost(btnID)
   })
 })
 
 function btnValuePost(btnID) {
-  console.log(btnID)
   $.post(
     'classes/Ajax.class.php',
     {
@@ -55,7 +53,7 @@ function btnValuePost(btnID) {
     },
     (response) => {
       // response from PHP back-end
-      console.log(response, btnID)
+      console.log(response)
     }
   )
 }
